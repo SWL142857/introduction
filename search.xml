@@ -4,6 +4,130 @@
   
     
     <entry>
+      <title>数据挖掘实验线：从房价预测到合同审阅</title>
+      <link href="/introduction/2026/06/17/data-mining-experiment-line/"/>
+      <url>/introduction/2026/06/17/data-mining-experiment-line/</url>
+      
+        <content type="html"><![CDATA[<p><code>Data Mining/</code> 这条线不是一个单独项目，而是一组实验：传统机器学习、集成学习、结果分析，以及大模型在合同审阅中的应用。它很适合用来观察一个变化：数据挖掘课程正在从“训练模型”扩展到“设计可验证的 AI 工作流”。</p><h2 id="HW2：房价预测与集成学习"><a href="#HW2：房价预测与集成学习" class="headerlink" title="HW2：房价预测与集成学习"></a>HW2：房价预测与集成学习</h2><p>HW2 基于 Kaggle House Prices 数据集，任务包括：</p><ul><li>Linear Regression 做连续房价预测。</li><li>SVM 和 Logistic Regression 做离散化房价分类。</li><li>XGBoost 做回归预测。</li><li>Stacking Ensemble 集成多个回归器。</li></ul><p>预处理流程很朴素但完整：</p><ul><li>只保留数值型特征。</li><li>训练/验证集按 80/20 划分。</li><li>缺失值用中位数填补。</li><li>房价按 <code>ceil(SalePrice / 100000)</code> 离散化。</li></ul><p>结果里，Stacking Ensemble 在 Accuracy、MAE 和 RMSE 上都优于 XGBoost。这个结论本身不惊人，真正值得记录的是实验组织方式：固定 random seed、明确数据划分、同时报告分类和回归指标、把输出保存成 JSON/Markdown。</p><h2 id="为什么-Stacking-有用"><a href="#为什么-Stacking-有用" class="headerlink" title="为什么 Stacking 有用"></a>为什么 Stacking 有用</h2><p>Stacking 的价值来自模型互补。XGBoost、RandomForest、ExtraTrees、HistGradientBoosting 和 KNN 对数据结构的偏好不同，元学习器再把它们的预测与原始特征结合起来。</p><p>但 Stacking 也有风险：</p><ul><li>小数据上容易过拟合。</li><li>特征预处理不一致会污染结果。</li><li>如果 validation set 太少，提升可能只是偶然波动。</li><li>需要用交叉验证而不是直接在同一数据上训练元学习器。</li></ul><p>所以集成学习不是“模型越多越好”，而是要看误差是否互补、验证是否可靠。</p><h2 id="HW4：大模型合同审阅"><a href="#HW4：大模型合同审阅" class="headerlink" title="HW4：大模型合同审阅"></a>HW4：大模型合同审阅</h2><p>HW4 使用 DeepSeek V4 Pro 审阅贷款合同和房屋租赁合同。Prompt 的关键是从相对弱势方视角识别有实质风险的条款，并要求输出严格 JSON：</p><ul><li>原始条款。</li><li>风险类型。</li><li>风险原因。</li><li>合同总结。</li></ul><p>风险类型包括单方免责、单方权力扩张、过高费用或违约金、自动授权扣款、隐私或数据共享、争议解决不利、冲突或歧义等。</p><p>这类任务的重点不是“让模型说得像律师”，而是把输出约束成结构化结果，方便后续审计、展示和人工复核。</p><h2 id="LLM-审阅任务的边界"><a href="#LLM-审阅任务的边界" class="headerlink" title="LLM 审阅任务的边界"></a>LLM 审阅任务的边界</h2><p>合同审阅是高风险场景，不能把模型输出当法律意见。更合理的定位是：</p><ul><li>帮助快速定位可能有风险的条款。</li><li>给人工复核提供候选清单。</li><li>用统一 schema 便于比较不同合同。</li><li>标出冲突、重复和明显不平衡条款。</li></ul><p>它不应该：</p><ul><li>自动判断合同效力。</li><li>代替专业律师。</li><li>忽略司法辖区和具体事实。</li><li>对所有“不舒服”的条款都报风险。</li></ul><p>这和招聘 Agent 的经验类似：LLM 适合做证据整理和初筛，不适合独占最终决策。</p><h2 id="这条实验线的共同方法"><a href="#这条实验线的共同方法" class="headerlink" title="这条实验线的共同方法"></a>这条实验线的共同方法</h2><p>从 HW2 到 HW4，可以抽出一套共同实验方法：</p><ol><li>明确任务输入和输出。</li><li>固定数据切分或样本口径。</li><li>定义评价指标或输出 schema。</li><li>保存中间结果。</li><li>对模型结果做对照，而不是只看单次输出。</li><li>对高风险任务明确人工复核边界。</li></ol><p>传统数据挖掘训练的是模型和指标，大模型应用训练的是流程和约束。两者合在一起，才更接近真实 AI 工程。</p><p>对应原始资料目录：<code>Data Mining/</code>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Data Mining </tag>
+            
+            <tag> LLM Application </tag>
+            
+            <tag> Experiment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AI 视频存储系统调研：从 CCTV 到城市级视觉智能</title>
+      <link href="/introduction/2026/06/17/ai-video-storage-research/"/>
+      <url>/introduction/2026/06/17/ai-video-storage-research/</url>
+      
+        <content type="html"><![CDATA[<p>城市级视频监控正在从“录像留存系统”变成“视觉智能基础设施”。当摄像头数量进入十万级、视频分辨率进入 4K/8K、AI 分析从事后检索变成实时推理时，传统 NVR/SAN 架构就会被存储成本、带宽、I/O 和元数据碎片化拖住。</p><p>相关材料主要在 <code>Big Data/</code> 和 <code>report/</code>，其中 AI CCTV Storage Systems Research 是一次较完整的行业和系统调研。</p><h2 id="为什么视频存储不再只是存储"><a href="#为什么视频存储不再只是存储" class="headerlink" title="为什么视频存储不再只是存储"></a>为什么视频存储不再只是存储</h2><p>传统 CCTV 的核心目标是合规留存和事后回放。现代 AI 视频系统的目标变了：</p><ul><li>实时检测人员、车辆、异常事件。</li><li>支持自然语言视频检索。</li><li>在城市级范围内做跨摄像头追踪和态势分析。</li><li>把视频片段、图片、结构化属性、向量 embedding 和审计日志统一管理。</li></ul><p>这意味着存储系统不再是 bit bucket，而是 AI pipeline 的一部分。数据写入、元数据抽取、向量索引、推理触发和权限控制需要在同一架构里协同。</p><h2 id="第一条路线：语义压缩"><a href="#第一条路线：语义压缩" class="headerlink" title="第一条路线：语义压缩"></a>第一条路线：语义压缩</h2><p>视频数据最大的问题是体量。传统 H.264/H.265 主要压缩像素和运动冗余，但不理解语义价值。监控视频里大量时间是静态背景，真正有价值的目标只占小部分。</p><p>语义视频压缩的思路是：</p><ul><li>前端提取目标、轨迹、关键帧、文本描述或高维特征。</li><li>云端用生成式模型或共享上下文重构可理解内容。</li><li>对重要区域保真，对低价值背景极限压缩。</li></ul><p>产业里，海康威视“观澜编码”属于更现实的中间路线：用视觉大模型做 ROI 感知，前景保留细节，背景强压缩，同时兼容 H.265 解码体系。这种路线的工程价值很高，因为它不要求一次性推翻现有协议。</p><h2 id="第二条路线：中国式视图库基础设施"><a href="#第二条路线：中国式视图库基础设施" class="headerlink" title="第二条路线：中国式视图库基础设施"></a>第二条路线：中国式视图库基础设施</h2><p>中国城市级视频系统受 GB/T 28181 和 GA/T 1400 等标准影响很深。它的特点是：</p><ul><li>海量摄像头接入。</li><li>视频流、抓拍图、结构化人车属性混合存储。</li><li>强调级联、互联互通和视图库标准。</li><li>对长期留存、可用性和高密硬件要求高。</li></ul><p>这推动了华为 OceanStor Pacific、大华、海康等厂商走向高密度分布式视图存储：大容量 HDD、纠删码、多协议互通、全局元数据检索、视频流和图片结构化数据混合负载。</p><p>这条路线的优势是场景大、标准强、硬件密度高；挑战是系统复杂、历史包袱重、跨域数据治理难。</p><h2 id="第三条路线：美国式-AI-Native-数据平台"><a href="#第三条路线：美国式-AI-Native-数据平台" class="headerlink" title="第三条路线：美国式 AI-Native 数据平台"></a>第三条路线：美国式 AI-Native 数据平台</h2><p>美国厂商更强调软件定义、云原生、GPU 生态和 AI agent 集成。</p><p>Dell PowerScale 的代表思路是横向扩展文件系统和统一命名空间，给大规模非结构化数据和 GPU 训练/推理提供稳定吞吐。VAST Data 则更激进：把对象存储、数据库、向量、触发式数据处理和 AI pipeline 放在同一 AI OS 里，让视频摄入后自动生成元数据和 embedding，并触发推理任务。</p><p>这条路线的关键词是：</p><ul><li>存算解耦或共享一切架构。</li><li>向量数据库内生化。</li><li>自然语言视频检索。</li><li>AI agent 对基础设施和视频事件进行推理与编排。</li><li>零信任和数据生命周期安全。</li></ul><h2 id="中美路线的差异"><a href="#中美路线的差异" class="headerlink" title="中美路线的差异"></a>中美路线的差异</h2><p>可以粗略总结为：</p><ul><li>中国路线偏标准驱动、硬件密度、视图库大基建、超大规模接入。</li><li>美国路线偏 AI 原生、软件平台、GPU 集成、自然语言检索和 agentic workflow。</li></ul><p>这不是谁替代谁的问题。未来更可能融合：</p><ul><li>底层接入和长期留存需要中国式强兼容和高密度。</li><li>上层分析和多模态推理需要美国式 AI 数据平台和灵活编排。</li></ul><h2 id="关键判断"><a href="#关键判断" class="headerlink" title="关键判断"></a>关键判断</h2><p>我从这份调研里得到的判断是：视频 AI 的瓶颈不只在模型，而在数据基础设施。</p><p>如果视频、图片、结构化属性、向量索引和权限审计分散在不同系统里，AI pipeline 会被数据搬运拖死。下一代城市视觉系统必须把存储、元数据、向量检索和推理触发合成一个更紧密的平台。</p><p>也就是说，AI 视频系统的竞争不只是摄像头算法竞争，而是“城市视觉数据操作系统”的竞争。</p><p>对应原始资料目录：<code>Big Data/</code>、<code>report/</code>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Research </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Storage </tag>
+            
+            <tag> Video AI </tag>
+            
+            <tag> Smart City </tag>
+            
+            <tag> Systems </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vibe Coding 与工具化表达：从想法到可交互作品</title>
+      <link href="/introduction/2026/06/17/vibe-coding-tool-making/"/>
+      <url>/introduction/2026/06/17/vibe-coding-tool-making/</url>
+      
+        <content type="html"><![CDATA[<p>Vibe Coding 不是“让 AI 帮我写代码”这么简单。更准确地说，它是一种把模糊想法、需求文档、设计、实现、测试和视觉迭代压缩到同一条对话流里的工作方式。</p><p>相关材料主要在 <code>大三上/vibe_coding/</code>、<code>vibe-vibe-main/</code>、<code>guizang-ppt-skill-main/</code>、<code>awesome-design/</code> 和 <code>awesome-design-md-main/</code>。</p><h2 id="一个例子：GNN-交互式可视化"><a href="#一个例子：GNN-交互式可视化" class="headerlink" title="一个例子：GNN 交互式可视化"></a>一个例子：GNN 交互式可视化</h2><p><code>大三上/vibe_coding/</code> 里的项目是一个图神经网络交互式教育工具。初始需求很自然：</p><blockquote><p>想做一个 GNN 可视化，能看到节点和边，可以悬停高亮，还能看到消息传递动画。</p></blockquote><p>AI 把这句话转成更结构化的需求：</p><ul><li>图结构渲染。</li><li>节点和边的交互高亮。</li><li>消息传递动画。</li><li>节点特征面板。</li><li>GNN 数学公式展示。</li><li>控制面板和状态切换。</li></ul><p>技术栈是 React + TypeScript + Framer Motion + Tailwind CSS + SVG + Vitest。这个选择很合理：SVG 适合图结构，Framer Motion 适合消息粒子动画，TypeScript 让图数据结构更清楚。</p><h2 id="Vibe-Coding-的核心不是快，而是迭代密度"><a href="#Vibe-Coding-的核心不是快，而是迭代密度" class="headerlink" title="Vibe Coding 的核心不是快，而是迭代密度"></a>Vibe Coding 的核心不是快，而是迭代密度</h2><p>报告里最有代表性的不是某段代码，而是对话式迭代：</p><ul><li>“节点太小了，能放大一点吗？”</li><li>“这些地方太丑了。”</li><li>“点都挤在一起了。”</li><li>“把 node feature 和 GNN Mathematics 分开变成 2 列。”</li></ul><p>这些反馈很口语，但 AI 可以把它们映射到具体改动：节点半径、字体大小、力导向布局参数、面板拆分、公式排版、空间利用率。</p><p>这就是 Vibe Coding 的真正价值：人的审美判断和任务目标可以快速进入代码循环，而不必每次都手写完整实现指令。</p><h2 id="从一次作品到可复用-Skill"><a href="#从一次作品到可复用-Skill" class="headerlink" title="从一次作品到可复用 Skill"></a>从一次作品到可复用 Skill</h2><p><code>guizang-ppt-skill-main/</code> 展示了另一层：把经验封装成 Skill。</p><p>一个好的 Skill 不只是模板文件，还包括：</p><ul><li>何时使用、何时不使用。</li><li>需求澄清问题。</li><li>风格选择规则。</li><li>主题色约束。</li><li>版式模板。</li><li>图片和截图处理约定。</li><li>验证清单。</li></ul><p>这说明工具化表达的本质是把“隐性经验”变成可执行流程。比如做网页 PPT，不只是会写 HTML，而是知道什么时候选电子杂志风、什么时候选瑞士国际主义、图片该怎么命名、截图要不要重构、文字密度怎么控制。</p><h2 id="设计素材库的作用"><a href="#设计素材库的作用" class="headerlink" title="设计素材库的作用"></a>设计素材库的作用</h2><p><code>awesome-design/</code> 和 <code>awesome-design-md-main/</code> 这类目录看起来像素材收集，但它们其实是审美训练集。做前端、PPT、产品页面或可视化工具时，最怕的是没有参照系。</p><p>一个好的设计库可以帮助回答：</p><ul><li>什么样的信息适合卡片，什么样的信息适合表格？</li><li>品牌页、工具页、数据页的视觉语言有什么差异？</li><li>如何从真实产品里学习间距、层级、对比和动线？</li><li>为什么有些界面看起来“像作品”，有些只是堆组件？</li></ul><p>AI 能生成很多东西，但人需要有判断力。设计素材库就是训练判断力的方式之一。</p><h2 id="可复用的方法"><a href="#可复用的方法" class="headerlink" title="可复用的方法"></a>可复用的方法</h2><p>从这批材料里，我提炼出一套从想法到工具的流程：</p><ol><li>用自然语言描述目标和体验，不急着写技术方案。</li><li>让 AI 转成需求文档和验收标准。</li><li>先做最小可交互版本。</li><li>用截图和口语反馈做视觉迭代。</li><li>把稳定经验沉淀成模板、组件和清单。</li><li>给工具写适用边界，避免误用。</li><li>最后再整理成博客或说明文档，让经验可复用。</li></ol><p>Vibe Coding 的上限不是“写得快”，而是“想法、审美、工程和文档能不能形成闭环”。当一个作品能变成可复用工具时，它才真正从一次作业变成了知识资产。</p><p>对应原始资料目录：<code>大三上/vibe_coding/</code>、<code>vibe-vibe-main/</code>、<code>guizang-ppt-skill-main/</code>、<code>awesome-design/</code>、<code>awesome-design-md-main/</code>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vibe Coding </tag>
+            
+            <tag> Tool Making </tag>
+            
+            <tag> Frontend </tag>
+            
+            <tag> Design </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Rel-LLM 与 ToG：关系表上的图推理路线</title>
+      <link href="/introduction/2026/06/17/rel-llm-tog-graph-reasoning/"/>
+      <url>/introduction/2026/06/17/rel-llm-tog-graph-reasoning/</url>
+      
+        <content type="html"><![CDATA[<p>关系数据库本身就是一种图。表是节点类型，行是实体，外键是边，时间戳提供演化顺序。Rel-LLM 和 ToG-style reasoning 的核心问题是：能不能让大模型在这种结构上做可解释的预测，而不是只把表格拍平成文本。</p><p>相关材料主要在 <code>科研/Rel-LLM/</code>、<code>Rel-LLM/</code> 和 <code>科研/ToG/</code>。</p><h2 id="Rel-LLM-的基本思路"><a href="#Rel-LLM-的基本思路" class="headerlink" title="Rel-LLM 的基本思路"></a>Rel-LLM 的基本思路</h2><p>Rel-LLM 面向 RelBench 这类关系学习任务。它把多表数据库构造成异构实体图，然后在预测时间点采样 temporal-aware subgraph，再用 GNN 或 LLM 进行推理。</p><p>传统路线是：</p><ol><li>从关系表构造 heterogeneous entity graph。</li><li>按时间点采样相关子图。</li><li>用 GraphSAGE 等 GNN 编码结构。</li><li>将图表示投影到 LLM 空间。</li><li>用 JSON prompt 或 soft prompting 让 LLM 输出分类/回归结果。</li></ol><p>这条路线的优点是效率高、可训练、和传统图学习兼容；缺点是解释性不一定强，GNN 表示经过压缩后，模型到底用了哪些关系和实体并不总是清楚。</p><h2 id="ToG-style-reasoning-的替代路线"><a href="#ToG-style-reasoning-的替代路线" class="headerlink" title="ToG-style reasoning 的替代路线"></a>ToG-style reasoning 的替代路线</h2><p>ToG 的思路更接近“显式探索”。它不先把图压成向量，而是让 LLM 逐跳选择关系、搜索实体、评分、剪枝，并判断当前证据是否足够。</p><p>迁移到 Rel-LLM 后，主循环大致是：</p><ol><li><code>RelationPruner</code>：从当前实体可走的外键关系里选出最相关的关系。</li><li><code>EntitySearcher</code>：沿关系在 HeteroData / edge_index 中找到候选实体。</li><li><code>EntityScorer</code>：根据任务上下文给候选实体打分。</li><li><code>EntityPruner</code>：保留前沿实体和实体链。</li><li><code>SufficiencyReasoner</code>：判断已有三元组是否足够预测。</li><li><code>PredictionGenerator</code>：生成分类标签或回归值。</li></ol><p>这等于是把“图推理路径”变成一串可检查的实体链。</p><h2 id="三种剪枝工具"><a href="#三种剪枝工具" class="headerlink" title="三种剪枝工具"></a>三种剪枝工具</h2><p>设计里支持三种关系/实体筛选方式：</p><ul><li><code>llm</code>：语义理解最强，成本最高，稳定性依赖 prompt。</li><li><code>bm25</code>：便宜、快、可复现，适合文本字段比较明确的场景。</li><li><code>sentencebert</code>：比 BM25 更语义化，比 LLM 更便宜，但需要 embedding 模型。</li></ul><p>这给了一个很实用的工程策略：先用 BM25 或 SentenceBERT 过滤，再把少量候选交给 LLM 做最终判断。纯 LLM 探索很漂亮，但在大图上容易被成本和延迟拖垮。</p><h2 id="关系表图推理的关键难点"><a href="#关系表图推理的关键难点" class="headerlink" title="关系表图推理的关键难点"></a>关系表图推理的关键难点</h2><p>关系表不是普通知识图谱，它有几个特殊问题：</p><ul><li>行实体通常缺少自然语言名称，需要从关键列生成文本表示。</li><li>外键边有方向，forward 和 reverse 的语义不同。</li><li>时间很重要，不能把预测时间之后的信息泄漏进去。</li><li>数值列、类别列、文本列需要不同序列化方式。</li><li>回归任务比问答任务更难解释，因为答案不是一个实体名。</li></ul><p>所以 ToG 不能照搬到数据库上，必须加上表结构、任务元数据和 temporal constraint。</p><h2 id="GNN-路线和-ToG-路线怎么选"><a href="#GNN-路线和-ToG-路线怎么选" class="headerlink" title="GNN 路线和 ToG 路线怎么选"></a>GNN 路线和 ToG 路线怎么选</h2><p>我的阶段性判断是：</p><ul><li>如果目标是 benchmark 性能和训练效率，GNN + LLM 更稳。</li><li>如果目标是解释路径、debug 数据泄漏、生成可读证据链，ToG-style 更合适。</li><li>如果任务很大，可以用 GNN 或 embedding 做候选收缩，再用 ToG 做局部解释。</li></ul><p>这其实和 GraphRAG 很像：向量/模型负责快速缩小范围，显式图探索负责解释和多跳结构。</p><h2 id="可继续写的研究问题"><a href="#可继续写的研究问题" class="headerlink" title="可继续写的研究问题"></a>可继续写的研究问题</h2><p>后续这条线还可以继续展开：</p><ul><li>如何自动选择每个表的关键列，生成更好的实体文本？</li><li>如何避免 ToG 探索中的时间泄漏？</li><li>如何把 ToG 产生的路径作为 GNN 的可解释监督？</li><li>如何评估关系推理路径是否真的有用，而不是事后合理化？</li><li>如何在分类和回归任务之间统一 PredictionGenerator？</li></ul><p>关系数据库上的 LLM 推理很有潜力，因为企业数据天然以表和外键存在。真正有价值的系统，应该能在表结构里走路，而不是只把表格转成一大段 prompt。</p><p>对应原始资料目录：<code>科研/Rel-LLM/</code>、<code>Rel-LLM/</code>、<code>科研/ToG/</code>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Research </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Rel-LLM </tag>
+            
+            <tag> ToG </tag>
+            
+            <tag> Graph Reasoning </tag>
+            
+            <tag> Relational Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>工程项目复盘：从 Demo 到可审计系统</title>
       <link href="/introduction/2026/06/17/engineering-project-retrospective/"/>
       <url>/introduction/2026/06/17/engineering-project-retrospective/</url>
