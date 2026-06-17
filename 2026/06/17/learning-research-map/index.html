@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>我的学习与科研资料地图 | SWL142857</title><meta name="author" content="SWL142857"><meta name="copyright" content="SWL142857"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这篇文章不是一个文件清单，而是我给当前工作区做的一次知识整理。原始资料散落在很多文件夹里：课程作业、科研代码、论文 PDF、比赛项目、开源教程、个人材料、实验报告。真正值得长期沉淀的不是“我有多少文件”，而是这些文件背后的学习路径和研究问题。 我把它们整理成六条主线：  大模型基础与应用 RAG、GraphRAG 与多跳推理 Agent、Memory 与多智能体系统 LLM Systems 与深度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的学习与科研资料地图">
+<meta property="og:url" content="https://swl142857.github.io/introduction/2026/06/17/learning-research-map/index.html">
+<meta property="og:site_name" content="SWL142857">
+<meta property="og:description" content="这篇文章不是一个文件清单，而是我给当前工作区做的一次知识整理。原始资料散落在很多文件夹里：课程作业、科研代码、论文 PDF、比赛项目、开源教程、个人材料、实验报告。真正值得长期沉淀的不是“我有多少文件”，而是这些文件背后的学习路径和研究问题。 我把它们整理成六条主线：  大模型基础与应用 RAG、GraphRAG 与多跳推理 Agent、Memory 与多智能体系统 LLM Systems 与深度">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://swl142857.github.io/introduction/img/bg.jpg">
+<meta property="article:published_time" content="2026-06-17T05:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-17T13:14:11.020Z">
+<meta property="article:author" content="SWL142857">
+<meta property="article:tag" content="Knowledge Map">
+<meta property="article:tag" content="Learning System">
+<meta property="article:tag" content="Research">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://swl142857.github.io/introduction/img/bg.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "我的学习与科研资料地图",
+  "url": "https://swl142857.github.io/introduction/2026/06/17/learning-research-map/",
+  "image": "https://swl142857.github.io/introduction/img/bg.jpg",
+  "datePublished": "2026-06-17T05:00:00.000Z",
+  "dateModified": "2026-06-17T13:14:11.020Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "SWL142857",
+      "url": "https://SWL142857.github.io/introduction"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/introduction/img/avatar.JPG"><link rel="canonical" href="https://swl142857.github.io/introduction/2026/06/17/learning-research-map/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/introduction/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/introduction/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '我的学习与科研资料地图',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/avatar.JPG" onerror="this.onerror=null;this.src='/introduction/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/introduction/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/introduction/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/introduction/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/introduction/"><i class="fa-fw fas fa-home"></i><span> 首页 Home</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档 Archives</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签 Tags</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类 Categories</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/about/"><i class="fa-fw fas fa-user"></i><span> 关于 About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/introduction/img/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/introduction/"><span class="site-name">SWL142857</span></a><a class="nav-page-title" href="/introduction/"><span class="site-name">我的学习与科研资料地图</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/introduction/"><i class="fa-fw fas fa-home"></i><span> 首页 Home</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档 Archives</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签 Tags</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类 Categories</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/about/"><i class="fa-fw fas fa-user"></i><span> 关于 About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">我的学习与科研资料地图</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-17T05:00:00.000Z" title="发表于 2026-06-17 13:00:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-17T13:14:11.020Z" title="更新于 2026-06-17 21:14:11">2026-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/introduction/categories/Learning/">Learning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>这篇文章不是一个文件清单，而是我给当前工作区做的一次知识整理。原始资料散落在很多文件夹里：课程作业、科研代码、论文 PDF、比赛项目、开源教程、个人材料、实验报告。真正值得长期沉淀的不是“我有多少文件”，而是这些文件背后的学习路径和研究问题。</p>
+<p>我把它们整理成六条主线：</p>
+<ol>
+<li>大模型基础与应用</li>
+<li>RAG、GraphRAG 与多跳推理</li>
+<li>Agent、Memory 与多智能体系统</li>
+<li>LLM Systems 与深度学习系统</li>
+<li>图学习、视觉、强化学习与经典课程</li>
+<li>工程项目、数据挖掘与可复现实验</li>
+</ol>
+<h2 id="1-大模型基础：从原理到应用"><a href="#1-大模型基础：从原理到应用" class="headerlink" title="1. 大模型基础：从原理到应用"></a>1. 大模型基础：从原理到应用</h2><p>相关目录：</p>
+<ul>
+<li><code>Happy/</code></li>
+<li><code>ANLP/</code></li>
+<li><code>ML/</code></li>
+<li><code>cs224n_gpt/</code></li>
+<li><code>hello-agents/</code></li>
+<li><code>HelloAgents-learn_version/</code></li>
+</ul>
+<p>这一部分的材料构成了一条比较完整的大模型学习路线：</p>
+<ul>
+<li>从 NLP 基础、Transformer、预训练语言模型开始，理解 LLM 的模型结构。</li>
+<li>通过 ML 课程作业进入 RAG、Transformer、微调、遗忘、模型编辑、模型合并和扩散模型。</li>
+<li>通过 ANLP 课件补足语言模型、解码、评估、长上下文、推理、量化、后训练、多模态和 Agent 等专题。</li>
+<li>通过 Hello-Agents 系列把知识落到智能体应用：ReAct、Plan-and-Solve、Reflection、上下文工程、记忆、协议、评估和 Agentic RL。</li>
+</ul>
+<p>这条线的核心收获是：大模型不是一个单点技术，而是一套从表示学习、训练、对齐、推理、工具调用到系统评估的工程栈。学习时不能只背模型名，更应该追问：输入如何组织、上下文如何管理、工具如何接入、错误如何评估。</p>
+<h2 id="2-RAG-与-GraphRAG：从检索增强到结构化推理"><a href="#2-RAG-与-GraphRAG：从检索增强到结构化推理" class="headerlink" title="2. RAG 与 GraphRAG：从检索增强到结构化推理"></a>2. RAG 与 GraphRAG：从检索增强到结构化推理</h2><p>相关目录：</p>
+<ul>
+<li><code>all-in-rag-main/</code></li>
+<li><code>youtu-graphrag/</code></li>
+<li><code>Efficiency/</code></li>
+<li><code>LoCoRAG/</code></li>
+<li><code>RT-RAG/</code></li>
+<li><code>科研/RAG/</code></li>
+<li><code>result analysis/</code></li>
+</ul>
+<p>这组材料是当前工作区最明显的研究主线。它覆盖了普通 RAG、复杂检索、多跳问答、图增强检索、社区摘要、Schema 引导图构建、树状推理、评测脚本和结果分析。</p>
+<p>我现在对 RAG 的理解可以分成四层：</p>
+<ul>
+<li>数据层：文档加载、清洗、分块、元数据组织。</li>
+<li>索引层：embedding、稠密检索、稀疏检索、混合检索、向量库和 rerank。</li>
+<li>推理层：查询改写、子问题分解、多跳检索、证据聚合、答案生成。</li>
+<li>评估层：EM、F1、cover EM、ROUGE-L、LLM judge，以及错误案例分析。</li>
+</ul>
+<p>GraphRAG 的关键不只是“把图加进去”，而是用结构约束检索过程：实体、关系、社区、Schema、路径、子图和证据之间要有明确职责。否则图很容易变成昂贵的装饰。</p>
+<h2 id="3-Agent-Memory：让系统记住什么、怎么记"><a href="#3-Agent-Memory：让系统记住什么、怎么记" class="headerlink" title="3. Agent Memory：让系统记住什么、怎么记"></a>3. Agent Memory：让系统记住什么、怎么记</h2><p>相关目录：</p>
+<ul>
+<li><code>Memory-SRTP/</code></li>
+<li><code>科研/memory/</code></li>
+<li><code>competition/</code></li>
+<li><code>bytedance/</code></li>
+<li><code>科研/ToG/</code></li>
+<li><code>科研/Rel-LLM/</code></li>
+</ul>
+<p>这条线关注的是 Agent 的长期记忆和结构化经验。资料中有大量 memory 论文，包括层次化记忆、图记忆、情景记忆、反思记忆、过程记忆、长期个性化记忆、从 RAG 到 Memory 的非参数持续学习等。</p>
+<p>工程上，<code>competition/</code> 和 <code>bytedance/</code> 把这个问题落到了招聘场景：候选人、岗位、特征、相似边、图投影、历史决策和 Reviewer/Search RAG 共同组成一个 Graph-Based Memory 系统。</p>
+<p>这里最重要的设计原则有三个：</p>
+<ul>
+<li>记忆要和业务事件一起产生，而不是事后堆一个数据库。</li>
+<li>Python 负责确定性结构计算，LLM 负责解释和语言化输出。</li>
+<li>人类最终决策要留在环内，Agent 负责整理证据、提出建议和生成审计记录。</li>
+</ul>
+<h2 id="4-LLM-Systems：从模型使用到系统实现"><a href="#4-LLM-Systems：从模型使用到系统实现" class="headerlink" title="4. LLM Systems：从模型使用到系统实现"></a>4. LLM Systems：从模型使用到系统实现</h2><p>相关目录：</p>
+<ul>
+<li><code>cmu11868/</code></li>
+<li><code>cmu11766/</code></li>
+<li><code>homework_spring2026/</code></li>
+<li><code>CS185:285/</code></li>
+<li><code>RL-notes/</code></li>
+</ul>
+<p>这条线偏系统与训练基础。<code>cmu11868</code> 覆盖了 MiniTorch、自动微分、CUDA kernel、Transformer、分布式训练、DeepSpeed ZeRO、LoRA、SGLang、VERL 和 RLHF。它让“调用模型 API”往下沉了一层：模型为什么慢、显存为什么炸、并行如何切、KV cache 怎么复用、训练和推理系统如何分工。</p>
+<p><code>RL-notes</code> 和 <code>CS185:285</code> 则负责把强化学习、离线强化学习、RLHF、LLM 后训练和决策理论串起来。对于 Agent 研究来说，这很重要，因为 Agent 不只是会聊天的程序，它本质上仍然是在不确定环境里选择行动的系统。</p>
+<h2 id="5-图学习、视觉与经典课程基础"><a href="#5-图学习、视觉与经典课程基础" class="headerlink" title="5. 图学习、视觉与经典课程基础"></a>5. 图学习、视觉与经典课程基础</h2><p>相关目录：</p>
+<ul>
+<li><code>cs224w/</code></li>
+<li><code>cs231n/</code></li>
+<li><code>GAMES101/</code></li>
+<li><code>Data Mining/</code></li>
+<li><code>大二下/</code></li>
+<li><code>大三上/</code></li>
+<li><code>Compiler/</code></li>
+<li><code>cp-3230101959/</code></li>
+</ul>
+<p>这一部分是基础能力的底座：</p>
+<ul>
+<li>CS224W 训练图结构、图神经网络和网络分析直觉。</li>
+<li>CS231n 覆盖 KNN、softmax、两层网络、全连接网络、CNN、BatchNorm、Dropout、RNN、Transformer Captioning、CLIP、DINO、DDPM 和自监督学习。</li>
+<li>GAMES101 带来图形学和几何基础。</li>
+<li>编译、MiniSQL、网络实验、C++ 数据结构等材料补足系统与底层实现能力。</li>
+</ul>
+<p>这些内容看起来和 LLM 应用距离较远，但它们决定了工程判断的厚度。很多 RAG、Agent 和图记忆问题，最后都会回到数据结构、复杂度、并发、评估和可复现性。</p>
+<h2 id="6-工程项目与可复现实验"><a href="#6-工程项目与可复现实验" class="headerlink" title="6. 工程项目与可复现实验"></a>6. 工程项目与可复现实验</h2><p>相关目录：</p>
+<ul>
+<li><code>project/</code></li>
+<li><code>reproductive-ai-mining-assignment/</code></li>
+<li><code>Data Mining/final/</code></li>
+<li><code>repo-group6-grade/</code></li>
+<li><code>vibe-vibe-main/</code></li>
+<li><code>guizang-ppt-skill-main/</code></li>
+<li><code>awesome-design/</code></li>
+<li><code>awesome-design-md-main/</code></li>
+<li><code>Big Data/</code></li>
+<li><code>report/</code></li>
+</ul>
+<p>这部分不是单纯学习，而是把方法做成可交付成果。</p>
+<p>例如，生殖医学 AI 文献信息挖掘项目把任务拆成期刊白名单、多源召回、去重合并、规则筛选、大模型复核和 CSV/报告导出。它的价值不只在最终有多少篇论文，而在于可复现流程：每一步都有输入、输出、脚本、口径和中间文件。</p>
+<p>再比如，<code>bytedance/</code> 里的 HireLoop 把比赛系统推进到真实飞书 Base、API 写回、状态机、人类确认和安全边界。这类项目训练的是“系统能不能闭环”，不是“demo 能不能看起来聪明”。</p>
+<h2 id="不适合公开发布的内容"><a href="#不适合公开发布的内容" class="headerlink" title="不适合公开发布的内容"></a>不适合公开发布的内容</h2><p>有些目录应该只作为私有归档，不适合直接发布到博客：</p>
+<ul>
+<li><code>material/</code>：签证、CV、邀请函、成绩单、邮件草稿等个人材料。</li>
+<li>含真实凭据、个人身份信息、未脱敏数据的实验输出。</li>
+<li>第三方课程作业的完整答案、私有数据、未授权论文全文。</li>
+</ul>
+<p>博客里可以写方法论和学习总结，但不要把个人材料或受限内容原样公开。</p>
+<h2 id="后续整理原则"><a href="#后续整理原则" class="headerlink" title="后续整理原则"></a>后续整理原则</h2><p>我会按“主题文章”继续整理，而不是按文件夹逐个搬运。一个好的博客知识库应该回答：</p>
+<ul>
+<li>我在研究什么问题？</li>
+<li>这个问题为什么重要？</li>
+<li>我读过/做过哪些路线？</li>
+<li>每条路线的关键机制是什么？</li>
+<li>哪些经验可以复用到下一个项目？</li>
+</ul>
+<p>文件夹只是入口，知识结构才是长期可读的东西。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://SWL142857.github.io/introduction">SWL142857</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://swl142857.github.io/introduction/2026/06/17/learning-research-map/">https://swl142857.github.io/introduction/2026/06/17/learning-research-map/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://SWL142857.github.io/introduction" target="_blank">SWL142857</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/introduction/tags/Knowledge-Map/">Knowledge Map</a><a class="post-meta__tags" href="/introduction/tags/Research/">Research</a><a class="post-meta__tags" href="/introduction/tags/Learning-System/">Learning System</a></div><div class="post-share"><div class="social-share" data-image="/introduction/img/bg.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/introduction/2026/06/17/workspace-folder-inventory/" title="工作区顶层文件夹整理台账"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="onerror=null;src='/introduction/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">工作区顶层文件夹整理台账</div></div><div class="info-2"><div class="info-item-1">这篇是对当前工作区顶层文件夹的逐项整理。它的目的不是公开所有文件，而是给每个目录一个明确定位：它属于哪条知识线、适不适合发布、后续可以整理成什么内容。 我把公开等级分成三类：  适合公开：可以直接写成博客文章或项目复盘。 谨慎公开：只提炼方法论，不公开原始数据、答案、隐私或未授权材料。 私有归档：不建议发布，只作为个人材料或环境工具保留。  逐文件夹整理    文件夹 知识归属 公开等级 整理方向     all-in-rag-main RAG 全栈教程 适合公开 整理为 RAG 基础、检索优化、评估和项目实战路线   ANLP 高级 NLP / LLM 课程 谨慎公开 按预训练、解码、评估、长上下文、Agent、后训练等主题整理学习笔记   awesome-design 设计资源 适合公开 作为设计审美与产品案例素材库   awesome-design-md-main 设计案例 Markdown 库 适合公开 提炼 UI/品牌/交互设计分析方法   AzharAli05___resume-screening-dataset 简历筛选数据集 谨慎公开 只讨论数据集用途和任务设计，...</div></div></div></a><a class="pagination-related" href="/introduction/2026/06/17/restart/" title="重新开始 / Restart"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="onerror=null;src='/introduction/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">重新开始 / Restart</div></div><div class="info-2"><div class="info-item-1">这个博客重新整理了一次：保留 Hexo 和 GitHub Pages 的轻量发布方式，换成更现代的 Butterfly 主题，让这里更适合长期记录技术学习、项目复盘和研究阅读。 This blog has been refreshed with Hexo, GitHub Pages, and the Butterfly theme. It is meant to be a long-running place for technical notes, project retrospectives, and research reading. 会写什么 AI、机器学习与图学习 RAG、智能体和工程实践 系统设计、工具链和实验记录 读论文、做项目和复盘时留下来的想法  为什么重构默认模板适合初始化项目，但不适合作为长期博客的门面。新的版本会把首页、归档、标签、分类和关于页都整理出来，让内容结构更清楚，也更适合继续扩展。 12npm run buildnpm run deploy 后续文章会逐步补上。先把门面擦亮，再慢慢把内容填进去。 </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/introduction/2026/06/17/workspace-folder-inventory/" title="工作区顶层文件夹整理台账"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-17</div><div class="info-item-2">工作区顶层文件夹整理台账</div></div><div class="info-2"><div class="info-item-1">这篇是对当前工作区顶层文件夹的逐项整理。它的目的不是公开所有文件，而是给每个目录一个明确定位：它属于哪条知识线、适不适合发布、后续可以整理成什么内容。 我把公开等级分成三类：  适合公开：可以直接写成博客文章或项目复盘。 谨慎公开：只提炼方法论，不公开原始数据、答案、隐私或未授权材料。 私有归档：不建议发布，只作为个人材料或环境工具保留。  逐文件夹整理    文件夹 知识归属 公开等级 整理方向     all-in-rag-main RAG 全栈教程 适合公开 整理为 RAG 基础、检索优化、评估和项目实战路线   ANLP 高级 NLP / LLM 课程 谨慎公开 按预训练、解码、评估、长上下文、Agent、后训练等主题整理学习笔记   awesome-design 设计资源 适合公开 作为设计审美与产品案例素材库   awesome-design-md-main 设计案例 Markdown 库 适合公开 提炼 UI/品牌/交互设计分析方法   AzharAli05___resume-screening-dataset 简历筛选数据集 谨慎公开 只讨论数据集用途和任务设计，...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/avatar.JPG" onerror="this.onerror=null;this.src='/introduction/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">SWL142857</div><div class="author-info-description">中文优先的双语技术博客 / Bilingual notes on AI, systems, and engineering.</div><div class="site-data"><a href="/introduction/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/introduction/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/introduction/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SWL142857"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/SWL142857" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录 AI、系统、工程实践与持续学习。Notes on AI, systems, engineering, and learning.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%EF%BC%9A%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1. 大模型基础：从原理到应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-RAG-%E4%B8%8E-GraphRAG%EF%BC%9A%E4%BB%8E%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E5%88%B0%E7%BB%93%E6%9E%84%E5%8C%96%E6%8E%A8%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">2. RAG 与 GraphRAG：从检索增强到结构化推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Agent-Memory%EF%BC%9A%E8%AE%A9%E7%B3%BB%E7%BB%9F%E8%AE%B0%E4%BD%8F%E4%BB%80%E4%B9%88%E3%80%81%E6%80%8E%E4%B9%88%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">3. Agent Memory：让系统记住什么、怎么记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-LLM-Systems%EF%BC%9A%E4%BB%8E%E6%A8%A1%E5%9E%8B%E4%BD%BF%E7%94%A8%E5%88%B0%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">4. LLM Systems：从模型使用到系统实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%9B%BE%E5%AD%A6%E4%B9%A0%E3%80%81%E8%A7%86%E8%A7%89%E4%B8%8E%E7%BB%8F%E5%85%B8%E8%AF%BE%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="toc-number">5.</span> <span class="toc-text">5. 图学习、视觉与经典课程基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E4%B8%8E%E5%8F%AF%E5%A4%8D%E7%8E%B0%E5%AE%9E%E9%AA%8C"><span class="toc-number">6.</span> <span class="toc-text">6. 工程项目与可复现实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E9%80%82%E5%90%88%E5%85%AC%E5%BC%80%E5%8F%91%E5%B8%83%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">7.</span> <span class="toc-text">不适合公开发布的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E6%95%B4%E7%90%86%E5%8E%9F%E5%88%99"><span class="toc-number">8.</span> <span class="toc-text">后续整理原则</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/engineering-project-retrospective/" title="工程项目复盘：从 Demo 到可审计系统"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="工程项目复盘：从 Demo 到可审计系统"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/engineering-project-retrospective/" title="工程项目复盘：从 Demo 到可审计系统">工程项目复盘：从 Demo 到可审计系统</a><time datetime="2026-06-17T06:00:00.000Z" title="发表于 2026-06-17 14:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/reproductive-ai-literature-mining/" title="一次可复现的生殖医学 AI 文献挖掘流程"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="一次可复现的生殖医学 AI 文献挖掘流程"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/reproductive-ai-literature-mining/" title="一次可复现的生殖医学 AI 文献挖掘流程">一次可复现的生殖医学 AI 文献挖掘流程</a><time datetime="2026-06-17T05:50:00.000Z" title="发表于 2026-06-17 13:50:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/ml-courses-to-research-foundation/" title="从机器学习课程到科研底座：我的基础能力路线"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="从机器学习课程到科研底座：我的基础能力路线"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/ml-courses-to-research-foundation/" title="从机器学习课程到科研底座：我的基础能力路线">从机器学习课程到科研底座：我的基础能力路线</a><time datetime="2026-06-17T05:40:00.000Z" title="发表于 2026-06-17 13:40:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/llm-systems-learning-roadmap/" title="LLM Systems 学习路线：从 MiniTorch 到 RLHF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="LLM Systems 学习路线：从 MiniTorch 到 RLHF"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/llm-systems-learning-roadmap/" title="LLM Systems 学习路线：从 MiniTorch 到 RLHF">LLM Systems 学习路线：从 MiniTorch 到 RLHF</a><time datetime="2026-06-17T05:30:00.000Z" title="发表于 2026-06-17 13:30:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/agent-memory-graph-systems/" title="Agent Memory 与图记忆系统：从论文到招聘场景"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="Agent Memory 与图记忆系统：从论文到招聘场景"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/agent-memory-graph-systems/" title="Agent Memory 与图记忆系统：从论文到招聘场景">Agent Memory 与图记忆系统：从论文到招聘场景</a><time datetime="2026-06-17T05:20:00.000Z" title="发表于 2026-06-17 13:20:00">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By SWL142857</span></div><div class="footer_custom_text">Built with Hexo and Butterfly.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/introduction/js/utils.js?v=5.5.5"></script><script src="/introduction/js/main.js?v=5.5.5"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

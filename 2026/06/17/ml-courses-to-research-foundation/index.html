@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>从机器学习课程到科研底座：我的基础能力路线 | SWL142857</title><meta name="author" content="SWL142857"><meta name="copyright" content="SWL142857"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="科研和项目做久了，很容易被最新名词牵着走。但回头看，真正支撑长期研究能力的，还是那些基础课程：机器学习、图学习、视觉、强化学习、图形学、编译和系统。 这篇整理的是工作区中偏课程基础的材料：ML&#x2F;、ANLP&#x2F;、cs231n&#x2F;、cs224w&#x2F;、RL-notes&#x2F;、GAMES101&#x2F;、大二下&#x2F;、大三上&#x2F;、Compiler&#x2F; 和 cp-3230101959&#x2F;。 机器学习与大模型作业线ML&#x2F; 里的作业覆盖了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从机器学习课程到科研底座：我的基础能力路线">
+<meta property="og:url" content="https://swl142857.github.io/introduction/2026/06/17/ml-courses-to-research-foundation/index.html">
+<meta property="og:site_name" content="SWL142857">
+<meta property="og:description" content="科研和项目做久了，很容易被最新名词牵着走。但回头看，真正支撑长期研究能力的，还是那些基础课程：机器学习、图学习、视觉、强化学习、图形学、编译和系统。 这篇整理的是工作区中偏课程基础的材料：ML&#x2F;、ANLP&#x2F;、cs231n&#x2F;、cs224w&#x2F;、RL-notes&#x2F;、GAMES101&#x2F;、大二下&#x2F;、大三上&#x2F;、Compiler&#x2F; 和 cp-3230101959&#x2F;。 机器学习与大模型作业线ML&#x2F; 里的作业覆盖了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://swl142857.github.io/introduction/img/bg.jpg">
+<meta property="article:published_time" content="2026-06-17T05:40:00.000Z">
+<meta property="article:modified_time" content="2026-06-17T13:14:11.411Z">
+<meta property="article:author" content="SWL142857">
+<meta property="article:tag" content="Computer Vision">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Graph Learning">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://swl142857.github.io/introduction/img/bg.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "从机器学习课程到科研底座：我的基础能力路线",
+  "url": "https://swl142857.github.io/introduction/2026/06/17/ml-courses-to-research-foundation/",
+  "image": "https://swl142857.github.io/introduction/img/bg.jpg",
+  "datePublished": "2026-06-17T05:40:00.000Z",
+  "dateModified": "2026-06-17T13:14:11.411Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "SWL142857",
+      "url": "https://SWL142857.github.io/introduction"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/introduction/img/avatar.JPG"><link rel="canonical" href="https://swl142857.github.io/introduction/2026/06/17/ml-courses-to-research-foundation/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/introduction/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/introduction/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从机器学习课程到科研底座：我的基础能力路线',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/avatar.JPG" onerror="this.onerror=null;this.src='/introduction/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/introduction/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/introduction/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/introduction/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/introduction/"><i class="fa-fw fas fa-home"></i><span> 首页 Home</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档 Archives</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签 Tags</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类 Categories</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/about/"><i class="fa-fw fas fa-user"></i><span> 关于 About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/introduction/img/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/introduction/"><span class="site-name">SWL142857</span></a><a class="nav-page-title" href="/introduction/"><span class="site-name">从机器学习课程到科研底座：我的基础能力路线</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/introduction/"><i class="fa-fw fas fa-home"></i><span> 首页 Home</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档 Archives</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签 Tags</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类 Categories</span></a></div><div class="menus_item"><a class="site-page" href="/introduction/about/"><i class="fa-fw fas fa-user"></i><span> 关于 About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">从机器学习课程到科研底座：我的基础能力路线</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-17T05:40:00.000Z" title="发表于 2026-06-17 13:40:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-17T13:14:11.411Z" title="更新于 2026-06-17 21:14:11">2026-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/introduction/categories/Learning/">Learning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>科研和项目做久了，很容易被最新名词牵着走。但回头看，真正支撑长期研究能力的，还是那些基础课程：机器学习、图学习、视觉、强化学习、图形学、编译和系统。</p>
+<p>这篇整理的是工作区中偏课程基础的材料：<code>ML/</code>、<code>ANLP/</code>、<code>cs231n/</code>、<code>cs224w/</code>、<code>RL-notes/</code>、<code>GAMES101/</code>、<code>大二下/</code>、<code>大三上/</code>、<code>Compiler/</code> 和 <code>cp-3230101959/</code>。</p>
+<h2 id="机器学习与大模型作业线"><a href="#机器学习与大模型作业线" class="headerlink" title="机器学习与大模型作业线"></a>机器学习与大模型作业线</h2><p><code>ML/</code> 里的作业覆盖了很多现代大模型主题：</p>
+<ul>
+<li>RAG with Agents</li>
+<li>Understanding LLM / Transformers</li>
+<li>Training Transformer</li>
+<li>Fine-tuning</li>
+<li>Forgetting</li>
+<li>Model Editing</li>
+<li>Model Merging</li>
+<li>Diffusion</li>
+</ul>
+<p>这条线的特点是直接贴近现在的 LLM 应用，但仍然需要基础能力支撑。例如 fine-tuning 不只是调一个 LoRA 参数，背后涉及数据分布、遗忘、泛化、评估和资源约束；model editing 和 model merging 也不是魔法，而是参数空间、任务冲突和知识定位问题。</p>
+<h2 id="ANLP：语言模型知识的横向展开"><a href="#ANLP：语言模型知识的横向展开" class="headerlink" title="ANLP：语言模型知识的横向展开"></a>ANLP：语言模型知识的横向展开</h2><p><code>ANLP/</code> 的课件形成了一张现代 NLP 主题图：</p>
+<ul>
+<li>word representation 和 text classification</li>
+<li>language modeling 和 sequence modeling</li>
+<li>attention 和 Transformer</li>
+<li>pretraining、finetuning、posttraining</li>
+<li>decoding、prompting、evaluation</li>
+<li>RL、agents、long context</li>
+<li>efficient inference、quantization、多模态</li>
+</ul>
+<p>这组材料适合用来补全概念边界。比如做 RAG 时会遇到 long context 和 evaluation，做推理服务时会遇到 efficient inference 和 quantization，做 Agent 时会遇到 prompting、tool use 和 posttraining。</p>
+<h2 id="CS231n：视觉和深度学习基本功"><a href="#CS231n：视觉和深度学习基本功" class="headerlink" title="CS231n：视觉和深度学习基本功"></a>CS231n：视觉和深度学习基本功</h2><p><code>cs231n/</code> 的作业是深度学习基础训练：</p>
+<ul>
+<li>KNN、softmax、two-layer net、fully-connected nets</li>
+<li>BatchNorm、Dropout、CNN</li>
+<li>PyTorch</li>
+<li>RNN captioning、Transformer captioning</li>
+<li>CLIP、DINO、自监督学习</li>
+<li>DDPM diffusion</li>
+</ul>
+<p>这条线的价值在于把神经网络从“调用库”还原成 layer、loss、gradient 和 optimizer。视觉任务也训练了一种非常重要的直觉：representation 的质量、数据增强、归一化和评估方式会直接决定系统上限。</p>
+<h2 id="CS224W：图学习和网络结构"><a href="#CS224W：图学习和网络结构" class="headerlink" title="CS224W：图学习和网络结构"></a>CS224W：图学习和网络结构</h2><p><code>cs224w/</code> 对当前 RAG/Memory 研究尤其重要。图学习训练的是另一种表示方式：节点、边、邻居、路径、社区、同质/异质图、message passing、GNN。</p>
+<p>当我做 GraphRAG 或招聘图记忆系统时，很多问题都会回到图学习：</p>
+<ul>
+<li>什么样的边是有意义的？</li>
+<li>相似边应该全局建还是局部建？</li>
+<li>节点特征如何和结构特征结合？</li>
+<li>什么时候用 GNN，什么时候用规则投影更稳？</li>
+<li>图结构如何评估质量？</li>
+</ul>
+<p>图不是万能表示，但它很适合表达关系和可解释路径。</p>
+<h2 id="强化学习：从预测到决策"><a href="#强化学习：从预测到决策" class="headerlink" title="强化学习：从预测到决策"></a>强化学习：从预测到决策</h2><p><code>RL-notes/</code> 是 CS285 风格的中文学习笔记，覆盖 imitation learning、policy gradient、actor-critic、value function、Q-learning、model-based RL、exploration、offline RL、IRL、soft optimality、RL and Language Models 等。</p>
+<p>强化学习的核心不是“训练游戏 AI”，而是处理交互式决策。对于 LLM 和 Agent，RL 重新变得重要，因为 Agent 面对的是：</p>
+<ul>
+<li>不完全信息</li>
+<li>长期目标</li>
+<li>工具调用代价</li>
+<li>环境反馈</li>
+<li>人类偏好</li>
+<li>失败恢复</li>
+</ul>
+<p>这也是为什么 RLHF、RLAIF、Agentic RL 和自我改进会成为大模型后训练的重要方向。</p>
+<h2 id="系统、编译和-C-基础"><a href="#系统、编译和-C-基础" class="headerlink" title="系统、编译和 C++ 基础"></a>系统、编译和 C++ 基础</h2><p><code>大二下/</code>、<code>大三上/</code>、<code>Compiler/</code>、<code>cp-3230101959/</code>、<code>GAMES101/</code> 这些目录看起来更传统，但它们提供的是工程底盘：</p>
+<ul>
+<li>C++ 数据结构和内存管理</li>
+<li>MiniSQL、buffer、storage、parser</li>
+<li>编译原理和中间表示</li>
+<li>网络实验和系统接口</li>
+<li>图形学中的矩阵、投影、光栅化和几何直觉</li>
+</ul>
+<p>做 AI 系统不能只懂模型。只要项目进入真实工程，就会遇到性能、内存、并发、文件格式、日志、部署、可复现和调试问题。</p>
+<h2 id="一条更稳的学习路线"><a href="#一条更稳的学习路线" class="headerlink" title="一条更稳的学习路线"></a>一条更稳的学习路线</h2><p>如果把这些基础材料整理成路线，我会这样安排：</p>
+<ol>
+<li>Python / C++ / 数据结构：保证能把想法写成可靠程序。</li>
+<li>机器学习基础：理解 loss、optimization、generalization。</li>
+<li>深度学习和视觉：理解网络结构、训练技巧和表示学习。</li>
+<li>NLP / Transformer：进入大模型主线。</li>
+<li>图学习：支撑 GraphRAG、Memory 和结构化推理。</li>
+<li>强化学习：支撑 Agent、RLHF 和长期决策。</li>
+<li>系统课程：支撑训练、推理、部署和性能优化。</li>
+</ol>
+<p>前沿研究总是在变，但基础能力会反复复利。一个稳定的学习系统，不是把所有课程都学完，而是知道遇到问题时应该回到哪一层补课。</p>
+<p>对应原始资料目录：<code>ML/</code>、<code>ANLP/</code>、<code>cs231n/</code>、<code>cs224w/</code>、<code>RL-notes/</code>、<code>GAMES101/</code>、<code>大二下/</code>、<code>大三上/</code>、<code>Compiler/</code>、<code>cp-3230101959/</code>。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://SWL142857.github.io/introduction">SWL142857</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://swl142857.github.io/introduction/2026/06/17/ml-courses-to-research-foundation/">https://swl142857.github.io/introduction/2026/06/17/ml-courses-to-research-foundation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://SWL142857.github.io/introduction" target="_blank">SWL142857</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/introduction/tags/Machine-Learning/">Machine Learning</a><a class="post-meta__tags" href="/introduction/tags/Deep-Learning/">Deep Learning</a><a class="post-meta__tags" href="/introduction/tags/Graph-Learning/">Graph Learning</a><a class="post-meta__tags" href="/introduction/tags/Computer-Vision/">Computer Vision</a></div><div class="post-share"><div class="social-share" data-image="/introduction/img/bg.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/introduction/2026/06/17/reproductive-ai-literature-mining/" title="一次可复现的生殖医学 AI 文献挖掘流程"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="onerror=null;src='/introduction/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">一次可复现的生殖医学 AI 文献挖掘流程</div></div><div class="info-2"><div class="info-item-1">这个项目的目标很具体：整理 2022-2026 年发表、2025 年影响因子大于 10、主题属于妇产科学/生殖医学并明确涉及 AI 技术的论文，最终输出固定 5 列 CSV：  论文标题 发表期刊 发表年份 2025 年期刊影响因子 论文使用的 AI 技术  原始资料主要在 project/、reproductive-ai-mining-assignment/ 和 Data Mining/final/。 这件事看起来像“搜论文”，但真正有价值的是流程设计：如何让召回、筛选、复核和导出都可复现。 阶段一：建立期刊白名单第一步不是直接搜论文，而是先定义“高影响力期刊”的边界。项目用公开可访问的期刊排名页建立 2025 年影响因子大于 10 的期刊白名单。 这里有一个重要口径：领域限定发生在论文主题层面，而不只是在期刊分类层面。也就是说，Nature、JAMA Network Open、npj Digital Medicine、Medical Image Analysis 等综合或交叉期刊中，只要论文主题属于妇产科/生殖医学，也应该被纳入候选。 这个设计保证了召回不被传统期刊分类卡死。...</div></div></div></a><a class="pagination-related" href="/introduction/2026/06/17/llm-systems-learning-roadmap/" title="LLM Systems 学习路线：从 MiniTorch 到 RLHF"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="onerror=null;src='/introduction/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">LLM Systems 学习路线：从 MiniTorch 到 RLHF</div></div><div class="info-2"><div class="info-item-1">如果只停留在 API 调用层，大模型很像一个黑盒服务：传 prompt，等返回。但 LLM Systems 学习的价值在于把这个黑盒拆开：自动微分怎么跑、CUDA kernel 怎么写、Transformer 怎么实现、分布式训练怎么切、推理系统怎么缓存、RLHF 怎么组织。 我的系统学习材料主要来自 cmu11868/、cmu11766/、homework_spring2026/、CS185:285/ 和 RL-notes/。 第一层：自动微分和张量框架cmu11868/hw1 从 MiniTorch 开始，任务是实现自动微分、简单神经网络和训练流程。这里最重要的不是写一个玩具框架，而是理解现代深度学习框架的基本抽象：  Variable / Tensor 如何构成计算图。 topological sort 如何保证反向传播顺序。 backpropagate 如何沿图累计梯度。 梯度为什么要初始化和清零。  很多后续 bug 都会回到这里。比如梯度初始化不正确，可能在更复杂的 Transformer 作业中表现成完全不相关的 backward 测试失败。 第二层：CUDA 和 ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/avatar.JPG" onerror="this.onerror=null;this.src='/introduction/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">SWL142857</div><div class="author-info-description">中文优先的双语技术博客 / Bilingual notes on AI, systems, and engineering.</div><div class="site-data"><a href="/introduction/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/introduction/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/introduction/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SWL142857"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/SWL142857" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">记录 AI、系统、工程实践与持续学习。Notes on AI, systems, engineering, and learning.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BD%9C%E4%B8%9A%E7%BA%BF"><span class="toc-number">1.</span> <span class="toc-text">机器学习与大模型作业线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ANLP%EF%BC%9A%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9F%A5%E8%AF%86%E7%9A%84%E6%A8%AA%E5%90%91%E5%B1%95%E5%BC%80"><span class="toc-number">2.</span> <span class="toc-text">ANLP：语言模型知识的横向展开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CS231n%EF%BC%9A%E8%A7%86%E8%A7%89%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E5%8A%9F"><span class="toc-number">3.</span> <span class="toc-text">CS231n：视觉和深度学习基本功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CS224W%EF%BC%9A%E5%9B%BE%E5%AD%A6%E4%B9%A0%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">CS224W：图学习和网络结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E4%BB%8E%E9%A2%84%E6%B5%8B%E5%88%B0%E5%86%B3%E7%AD%96"><span class="toc-number">5.</span> <span class="toc-text">强化学习：从预测到决策</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E3%80%81%E7%BC%96%E8%AF%91%E5%92%8C-C-%E5%9F%BA%E7%A1%80"><span class="toc-number">6.</span> <span class="toc-text">系统、编译和 C++ 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E6%9D%A1%E6%9B%B4%E7%A8%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="toc-number">7.</span> <span class="toc-text">一条更稳的学习路线</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/engineering-project-retrospective/" title="工程项目复盘：从 Demo 到可审计系统"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="工程项目复盘：从 Demo 到可审计系统"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/engineering-project-retrospective/" title="工程项目复盘：从 Demo 到可审计系统">工程项目复盘：从 Demo 到可审计系统</a><time datetime="2026-06-17T06:00:00.000Z" title="发表于 2026-06-17 14:00:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/reproductive-ai-literature-mining/" title="一次可复现的生殖医学 AI 文献挖掘流程"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="一次可复现的生殖医学 AI 文献挖掘流程"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/reproductive-ai-literature-mining/" title="一次可复现的生殖医学 AI 文献挖掘流程">一次可复现的生殖医学 AI 文献挖掘流程</a><time datetime="2026-06-17T05:50:00.000Z" title="发表于 2026-06-17 13:50:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/ml-courses-to-research-foundation/" title="从机器学习课程到科研底座：我的基础能力路线"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="从机器学习课程到科研底座：我的基础能力路线"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/ml-courses-to-research-foundation/" title="从机器学习课程到科研底座：我的基础能力路线">从机器学习课程到科研底座：我的基础能力路线</a><time datetime="2026-06-17T05:40:00.000Z" title="发表于 2026-06-17 13:40:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/llm-systems-learning-roadmap/" title="LLM Systems 学习路线：从 MiniTorch 到 RLHF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="LLM Systems 学习路线：从 MiniTorch 到 RLHF"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/llm-systems-learning-roadmap/" title="LLM Systems 学习路线：从 MiniTorch 到 RLHF">LLM Systems 学习路线：从 MiniTorch 到 RLHF</a><time datetime="2026-06-17T05:30:00.000Z" title="发表于 2026-06-17 13:30:00">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/introduction/2026/06/17/agent-memory-graph-systems/" title="Agent Memory 与图记忆系统：从论文到招聘场景"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/introduction/img/bg.jpg" onerror="this.onerror=null;this.src='/introduction/img/404.jpg'" alt="Agent Memory 与图记忆系统：从论文到招聘场景"/></a><div class="content"><a class="title" href="/introduction/2026/06/17/agent-memory-graph-systems/" title="Agent Memory 与图记忆系统：从论文到招聘场景">Agent Memory 与图记忆系统：从论文到招聘场景</a><time datetime="2026-06-17T05:20:00.000Z" title="发表于 2026-06-17 13:20:00">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By SWL142857</span></div><div class="footer_custom_text">Built with Hexo and Butterfly.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/introduction/js/utils.js?v=5.5.5"></script><script src="/introduction/js/main.js?v=5.5.5"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
