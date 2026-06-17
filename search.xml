@@ -2,6 +2,35 @@
 <search> 
   
   
+    
+    <entry>
+      <title>重新开始 / Restart</title>
+      <link href="/introduction/2026/06/17/restart/"/>
+      <url>/introduction/2026/06/17/restart/</url>
+      
+        <content type="html"><![CDATA[<p>这个博客重新整理了一次：保留 Hexo 和 GitHub Pages 的轻量发布方式，换成更现代的 Butterfly 主题，让这里更适合长期记录技术学习、项目复盘和研究阅读。</p><p>This blog has been refreshed with Hexo, GitHub Pages, and the Butterfly theme. It is meant to be a long-running place for technical notes, project retrospectives, and research reading.</p><h2 id="会写什么"><a href="#会写什么" class="headerlink" title="会写什么"></a>会写什么</h2><ul><li>AI、机器学习与图学习</li><li>RAG、智能体和工程实践</li><li>系统设计、工具链和实验记录</li><li>读论文、做项目和复盘时留下来的想法</li></ul><h2 id="为什么重构"><a href="#为什么重构" class="headerlink" title="为什么重构"></a>为什么重构</h2><p>默认模板适合初始化项目，但不适合作为长期博客的门面。新的版本会把首页、归档、标签、分类和关于页都整理出来，让内容结构更清楚，也更适合继续扩展。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm run build<br>npm run deploy<br></code></pre></td></tr></table></figure><p>后续文章会逐步补上。先把门面擦亮，再慢慢把内容填进去。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+            <tag> Notes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
